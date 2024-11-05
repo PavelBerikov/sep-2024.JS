@@ -181,7 +181,7 @@ console.log(arr[9])
             console.log('Monday');
             break;
         default:
-            console.log('Er')
+            console.log('Err')
     }
 }
 /*
