@@ -40,7 +40,6 @@ creatorUl('lorem')
 function creatorUlHard(txt, count){
     document.write(`<ul>`)
     for (let i = 0; i < count; i++) {
-        const txtElement = txt[i];
         document.write(`<li>${txt}</li>`)
     }
     document.write(`</ul>`)
@@ -79,7 +78,6 @@ const nums = [-100, 2, 4, 6, 22, 11, -2];
 function minNum(arr) {
     let min = 0;
     for (let i = 0; i < arr.length; i++) {
-        const item = arr[i];
         if (min > arr[i]){
             min = arr[i]
         }
@@ -111,11 +109,18 @@ swap(newArr, 2,3)
 /*- Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250*/
 function exchange(sumUAH,currencyValues,exchangeCurrency){
-    for (let i = 0; i < currencyValues.length; i++) {
-        const item = currencyValues[i];
-        if (item[i].currency === 'USD'){
-            console.log(item[i].value)
+        if (exchangeCurrency === 'EUR') {
+            for (const item of currencyValues) {
+                if (item.currency === 'EUR') {
+                    console.log(sumUAH / item.value)
+                }
+            }
+        } else if (exchangeCurrency === 'USD') {
+            for (const item of currencyValues) {
+                if (item.currency === 'USD') {
+                    console.log(sumUAH / item.value)
+                }
+            }
         }
-    }
 }
-exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD')
+exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'EUR')
