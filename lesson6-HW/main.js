@@ -49,3 +49,67 @@ console.log(coursesAndDurationArray.sort((a, b) => b.monthDuration - a.monthDura
 /*-- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців*/
 console.log(coursesAndDurationArray.filter(value => value.monthDuration > 5))
 /*-- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}*/
+console.log(coursesAndDurationArray.map((value, index) => {
+    return {id: index + 1, ...value}
+}))
+/*=========================
+описати колоду карт (від 6 до туза без джокерів)
+- знайти піковий туз
+- всі шістки
+- всі червоні карти
+- всі буби
+- всі трефи від 9 та більше
+
+{
+cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
+value: '', // '6'-'10', 'ace','jack','queen','king','joker'
+color:'', // 'red','black'
+}*/
+let cards = []
+let cardSuit = ['spade', 'diamond','heart', 'clubs']
+let value = [ '6', '7', '8', '9', '10', 'ace','jack','queen','king']
+for (const suit of cardSuit) {
+    for (const item of value) {
+        if (suit === 'spade' || suit === 'clubs'){
+            cards.push({cardSuit: suit, value: item, color: 'black'})
+        }else if(suit === 'heart' || suit === 'diamond'){
+            cards.push({cardSuit: suit, value: item, color: 'red'})
+        }
+    }
+}
+console.log(cards.filter(value => value.cardSuit === 'spade' && value.value === 'ace'))
+console.log(cards.filter(value => value.value === '6'))
+console.log(cards.filter(value => value.color === 'red'))
+console.log(cards.filter(value => value.cardSuit === 'diamond'))
+console.log(cards.filter(value => value.cardSuit === 'clubs' && (value.value >= 9 || !parseInt(value.value) )))
+/*
+Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+{
+spades:[],
+diamonds:[],
+hearts:[],
+clubs:[]
+}*/
+console.log(cards.reduce((accum, card) => {
+    switch (card.cardSuit){
+        case 'spade':
+            accum.spades.push(card)
+            break
+        case 'clubs':
+            accum.clubs.push(card)
+            break
+        case 'heart':
+            accum.hearts.push(card)
+            break
+        case 'diamond':
+            accum.diamonds.push(card)
+            break
+
+    }
+    return accum
+}, {
+    spades:[],
+    diamonds:[],
+    hearts:[],
+    clubs:[]
+}))
