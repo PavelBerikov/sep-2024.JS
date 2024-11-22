@@ -66,4 +66,4 @@ let coursesAndDurationArray = [
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
 ];
-console.log(coursesAndDurationArray.map((item, index) => ({...item, id:index + 1})))
+console.log(coursesAndDurationArray.map((item, index) => ({id:index + 1, ...item})))
