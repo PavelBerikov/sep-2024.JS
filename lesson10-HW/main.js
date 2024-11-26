@@ -143,8 +143,5 @@ window.onload = function () {
 const h1HTMLElement = document.createElement('h1');
 h1HTMLElement.innerText = `${grn}грн`
 document.body.append(h1HTMLElement)
-/*PAGINATION
- зробити масив на 100 об'єктів та дві кнопки prev next
- при завантажені сторінки з'являються перші 10 об'єктів.
- При натисканні next виводяться наступні 10 об'єктів
- При натисканні prev виводяться попередні 10 об'єктів*/
+
+
